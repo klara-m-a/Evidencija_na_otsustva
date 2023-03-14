@@ -1,0 +1,32 @@
+<div style="padding-left: 20px;">
+<br>
+<a class="btn btn-outline-primary" routerLink="/menu">Назад</a>
+<br><br>
+<table class="table">
+    <thead>
+        <tr>
+          <th scope="col">Име</th>
+          <th scope="col">Презиме</th>
+          <th scope="col">Место</th>
+          <th scope="col">Телефон</th>
+          <th scope="col">ЕМБГ</th>
+          <th scope="col">Одмор</th>
+          <th scope="col">Активен</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let vraboten of vraboteni">
+            <td>{{vraboten.v_ime}}</td>
+            <td>{{vraboten.v_prezime}}</td>
+            <td>{{vraboten.v_mesto}}</td>
+            <td>{{vraboten.v_telefon}}</td>
+            <td>{{vraboten.v_embg}}</td>
+            <td>{{vraboten.v_odmor}}</td>
+            <td>{{vraboten.v_aktiven}}</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<button type="button" (click)="add()" class="btn btn-primary btn-lg btn-block">Внеси нов вработен</button>
+</div>
