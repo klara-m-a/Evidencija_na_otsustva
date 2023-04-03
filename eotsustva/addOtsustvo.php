@@ -14,7 +14,7 @@ if(isset($postdata) && !empty($postdata)) {
 	$o_casovi = mysqli_real_escape_string($conn, trim($request->o_casovi));
 	$o_opis= mysqli_real_escape_string($conn, trim($request->o_opis));
 
-$result = mysqli_query($conn, "SELECT o_id from otsustva as o WHERE o.v_id=$v_id and o.o_datum=to_date('$o_datum','yyyy-mm-dd')");
+$result = mysqli_query($conn, "SELECT o_id FROM otsustva WHERE v_id = '$v_id' AND o_datum = STR_TO_DATE('$o_datum', '%Y-%m-%d');");
 //ispituva, ako ima otsustvo na taa data za toj vraboten ne vnesuva nisto vo tabela
 
 if(mysqli_num_rows($result)==0)
@@ -22,7 +22,7 @@ if(mysqli_num_rows($result)==0)
   $sql = "INSERT INTO otsustva (o_datum, o_casovi, o_opis, v_id, vid_id) 
 VALUES ('$o_datum', '$o_casovi','$o_opis','$v_id','$vid_id')";
 
-	if(mysqli_query($db_conn, $sql))
+	if(mysqli_query($conn, $sql))
 	{
  	 http_response_code(201);
 	}
